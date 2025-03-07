@@ -3,25 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>+/-</title>
+    <title>Mês</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
         <section class="pergunta">
             <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-                <?php for($i=0; $i<10;$i++):?>
-                <div class="form-content <?php echo$i?>" >
-                    <fieldset><legend><h1 class="title">Dados</h1></legend>
-                    <label class="dado-label" for="number">Número</label><br>
-                    <input class="dado-input" type="number" name="numero[]" id="numero <?php echo$i?>">                    
-                </fieldset>
                 
-                </div>
-                <?php endfor;?><br>
-                
-                    <input class="enviar" type="submit" value="Enviar">
-                
+                <div class="form-content " >
+                    <fieldset><legend><h1 class="title">Digite o mês desejado</h1></legend>
+                    <label class="dado-label" for="mes">Meses</label><br>
+                    <input class="dado-input" type="number" name="mes" id="mes">                    
+                </fieldset>                
+                </div>           
+                <input class="enviar" type="submit" value="Enviar">                
             </form>
 
         </section>       
@@ -32,11 +28,39 @@
         <div class="form-content">
             <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
                 
-            <?php      
+            <?php  
+            $meses=[
+                1=>'Janeiro',
+                2=> 'Fevereiro',
+                3=> 'Março',
+                4=> 'Abril',
+                5=> 'Maio',
+                6=> 'Junho',
+                7=> 'Julho',
+                8=> 'Agosto',
+                9=> 'Setembro',
+                10=> 'Outubro',
+                11=> 'Novembro',
+                12=> 'Dezembro'
+            ];
+            if($_SERVER['REQUEST_METHOD']==='POST'){
+                $mes=$_POST['mes'];
+            }if(isset($meses[$mes])){
+                echo"<div class='res'>
+                <p>O mês selecionado foi <strong> $meses[$mes]</strong></p>
+            </div>";
+
+            }else{
+                echo "<div class='res'>
+                <p>Não existe</p>
+            </div>";
+
+                }
         
             
             ?>   
             </fieldset>  
+            
         </div>
     <footer>
         <a href="https://github.com/RosaCL"><img src="./costurezaa.png" alt=""></a>

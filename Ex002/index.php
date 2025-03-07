@@ -32,33 +32,36 @@
             <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
                 
             <?php 
-            if($_SERVER["REQUEST_METHOD"==='POST']){
-                $numeros=$_POST['numero'];
-                $positive=0;
-                $negative=0;
-                $par=0;
-                $impar=0;
-            }
-                foreach ($numeros as $numero){
-                    if ($numero<0){
-                        $negative++;
-                    }elseif($numero>0){
-                        $positive++;
-                    }if ($numero%2===0){
-                        $par++;
-                    }else{
-                        $impar++;
-                    }
-                }
-                
-                echo "<p><strong>Números Pares: </strong> $par <br>
-                <strong>Números Impares:</strong> $impar<br>
-                <strong>Números Positivos:</strong> $positive<br>
-                <strong>Números Negativos:</strong> $negative<br>
-                </p>"     
-        
+            $positive=0;
+            $negative=0;
+            $par=0;
+            $impar=0;
             
-            ?>   
+            if($_SERVER['REQUEST_METHOD'] === 'POST') {
+                for($i= 0; $i< 10;$i++){
+                    $number = $_POST['numero'][$i];
+
+                if($number >= 0){
+                    $positive++;
+                }else{
+                    $negative++;
+                }
+
+                if($number % 2 == 0) {
+                    $par++;
+                }else{
+                    $impar++;
+                }
+            }
+        }
+                    echo "<p><strong>Números Pares: </strong> $par <br>
+                    <strong>Números Impares:</strong> $impar<br>
+                    <strong>Números Positivos:</strong> $positive<br>
+                    <strong>Números Negativos:</strong> $negative<br>
+                    </p>"     
+            
+                
+                ?>   
             </fieldset>  
         </div>
     <footer>
