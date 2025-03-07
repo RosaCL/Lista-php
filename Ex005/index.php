@@ -27,7 +27,8 @@
     <section class="resposta">
         <div class="form-content">
             <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
-                
+            <div class="res">
+
             <?php  
             $meses=[
                 1=>'Janeiro',
@@ -46,19 +47,17 @@
             if($_SERVER['REQUEST_METHOD']==='POST'){
                 $mes=$_POST['mes'];
             }if(isset($meses[$mes])){
-                echo"<div class='res'>
-                <p>O mês selecionado foi <strong> $meses[$mes]</strong></p>
-            </div>";
+                echo"<p>O mês selecionado foi <strong> $meses[$mes]</strong></p>";
 
             }else{
-                echo "<div class='res'>
-                <p>Não existe</p>
-            </div>";
+                echo "<p>Não existe</p>";
 
                 }
         
             
             ?>   
+            </div>
+                
             </fieldset>  
             
         </div>

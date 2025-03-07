@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>+/-</title>
+    <title>Inverso</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -25,6 +25,7 @@
     <section class="resposta">
         <div class="form-content">
             <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
+            <div class="res">
                 <?php
                 $numbers = [];
                 $inverse = [];
@@ -37,11 +38,14 @@
                     }
                 }
 
-                echo "Vetor Normal: [" . implode(", ", $numbers) . "]<br>";
-                echo "Vetor Contrário: [" . implode(", ", $inverse) . "]<br>";
+                echo "Vetor Normal: [" . implode(", ", $numbers) . "]<br>
+                Vetor Contrário: [" . implode(", ", $inverse) . "]";
+                
                 ?>
+            </div>
             </fieldset>
         </div>
+    
     <footer>
         <a href="https://github.com/RosaCL"><img src="./costurezaa.png" alt=""></a>
     </footer>

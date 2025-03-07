@@ -33,6 +33,7 @@
     <section class="resposta">
         <div class="form-content">
             <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
+            <div class="res">
                 <?php
                 $numberONe = [];
                 $numbertwo = [];
@@ -52,15 +53,15 @@
                         }
                     }
 
-                    echo "<p><strong>Resultado:</strong> ";
                     if (!empty($result)) {
                         foreach ($result as $value) {
                             echo $value . " ";
                         }
                     }
-                    echo "</p>";
+                    
                 }
                 ?>
+            </div>
             </fieldset>
         </div>
     <footer>

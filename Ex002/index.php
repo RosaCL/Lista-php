@@ -30,7 +30,7 @@
     <section class="resposta">
         <div class="form-content">
             <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
-                
+            <div class="res">
             <?php 
             $positive=0;
             $negative=0;
@@ -62,6 +62,7 @@
             
                 
                 ?>   
+            </div>
             </fieldset>  
         </div>
     <footer>
