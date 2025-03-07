@@ -12,11 +12,15 @@
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
         <?php for ($i=0; $i<10; $i++):?>
                         <div class="form-content" <?php echo $i;?>>
-                            <h3 class="title" >Dados Aluno <?php echo $i +1;?></h3><br>
+                            <fieldset><legend><h3 class="title" >Dados Aluno <?php echo $i +1;?></h3></legend>
                             <label class="dado-label" for="nome">Nome:</label><br>
                             <input class="dado-input" type="text"  id="nome" name="nome"><br>
                             <label  class="dado-label" for="nota">Nota</label><br>
-                            <input class="dado-input" type="number"  id="nota" name="nota" step="0.01">
+                            <input class="dado-input" type="number"  id="nota" name="nota" step="0.01">                     
+                        
+                        
+                        </fieldset>
+                            
                         </div>
                         <?php endfor;?>
                         <div>                            
@@ -28,38 +32,40 @@
         </section>
         <section class="resposta">
         <div class="form-content">
-                <h1 class="title">Dados Recebidos</h1><br>
-                <div class="res">
-                <?php
-                    if ($_SERVER["REQUEST_METHOD"] === 'POST' ){
-                        $nome=$_POST['nome'];
-                        $nota=$_POST['nota'];
-                        $alunos =[];
-                        $soma =0;
-                        $maiorNota=-1;
-                        $alunoMaiornota="";
-                
-                            for ($i = 0; $i < 10; $i++){
-                                $alunos[] =[
-                                    'nome' => $nome[$i],
-                                    'nota' => $nota[$i]
-                                ];
-                
-                
-                            $soma+=$nota[$i];
-                
-                            if ($nota[$i]>$maiorNota){
-                                $maiorNota=$nota[$i];
-                                $alunoMaiornota=$nome[$i];
-                            }
-                        }
-                            $media=$soma/$i;
-                            echo "<strong>Média da turma: </strong>$media <br>";
-                            echo "<strong>Maior nota: </strong>$alunoMaiornota";
-                    }
-                ?>
+            <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
 
-                </div>
+            <div class="res">
+            <?php
+                if ($_SERVER["REQUEST_METHOD"] === 'POST' ){
+                    $nome=$_POST['nome'];
+                    $nota=$_POST['nota'];
+                    $alunos =[];
+                    $soma =0;
+                    $maiorNota=-1;
+                    $alunoMaiornota="";
+            
+                        for ($i = 0; $i < 10; $i++){
+                            $alunos[] =[
+                                'nome' => $nome[$i],
+                                'nota' => $nota[$i]
+                            ];
+            
+            
+                        $soma+=$nota[$i];
+            
+                        if ($nota[$i]>$maiorNota){
+                            $maiorNota=$nota[$i];
+                            $alunoMaiornota=$nome[$i];
+                        }
+                    }
+                        $media=$soma/$i;
+                        echo "<strong>Média da turma: </strong>$media <br>";
+                        echo "<strong>Maior nota: </strong>$alunoMaiornota";
+                }
+            ?>
+    
+            </div>                   
+        </fieldset>
                 
                 
             </div>
