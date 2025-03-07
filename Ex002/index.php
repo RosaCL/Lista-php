@@ -24,44 +24,43 @@
                 
             </form>
 
-        </section>
-        <section class="resposta">
-            <div class="form-content">
-                <fieldset> <legend><h1 class="title">Dados analisados</h1></legend>
-                <div class="res">
-                    <?php 
-                    if($_SERVER["REQUEST_METHOD"==='POST']){
-                        $numeros=$_POST['numero'];
-                        $positive=0;
-                        $negative=0;
-                        $par=0;
-                        $impar=0;
-                    }
-                        foreach ($numeros as $numero){
-                            if ($numero<0){
-                                $negative++;
-                            }elseif($numero>0){
-                                $positive++;
-                            }if ($numero%2===0){
-                                $par++;
-                            }else{
-                                $impar++;
-                            }
-                        }
-                        
-                        echo "<p><strong>Números Pares: </strong> $par <br>
-                        <strong>Números Impares:</strong> $impar<br>
-                        <strong>Números Positivos:</strong> $positive<br>
-                        <strong>Números Negativos:</strong> $negative<br>
-                        </p>"
-                ?>
-                </div>
-                </fieldset>
-            </div> 
-
-        </section>
+        </section>       
 
     </main>
+    <section class="resposta">
+        <div class="form-content">
+            <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
+                
+            <?php 
+            if($_SERVER["REQUEST_METHOD"==='POST']){
+                $numeros=$_POST['numero'];
+                $positive=0;
+                $negative=0;
+                $par=0;
+                $impar=0;
+            }
+                foreach ($numeros as $numero){
+                    if ($numero<0){
+                        $negative++;
+                    }elseif($numero>0){
+                        $positive++;
+                    }if ($numero%2===0){
+                        $par++;
+                    }else{
+                        $impar++;
+                    }
+                }
+                
+                echo "<p><strong>Números Pares: </strong> $par <br>
+                <strong>Números Impares:</strong> $impar<br>
+                <strong>Números Positivos:</strong> $positive<br>
+                <strong>Números Negativos:</strong> $negative<br>
+                </p>"     
+        
+            
+            ?>   
+            </fieldset>  
+        </div>
     <footer>
         <a href="https://github.com/RosaCL"><img src="./costurezaa.png" alt=""></a>
     </footer>

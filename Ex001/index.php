@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php 
+        $nome=$_POST['nome'];
+        $nota=$_POST['nota'];
+        $alunos =[];
+        $soma=0;
+        $maiorNota=-1;
+        $alunoMaiornota="";
+    ?>
     <main>
         <section class="pergunta">
         <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
@@ -14,13 +22,10 @@
                         <div class="form-content" <?php echo $i;?>>
                             <fieldset><legend><h3 class="title" >Dados Aluno <?php echo $i +1;?></h3></legend>
                             <label class="dado-label" for="nome">Nome:</label><br>
-                            <input class="dado-input" type="text"  id="nome" name="nome"><br>
+                            <input class="dado-input" type="text"  id="nome" name="nome" value="<?=$nome?>"><br>
                             <label  class="dado-label" for="nota">Nota</label><br>
-                            <input class="dado-input" type="number"  id="nota" name="nota" step="0.01">                     
-                        
-                        
+                            <input class="dado-input" type="number"  id="nota" name="nota" step="0.01" value="<?=$nota?>">     
                         </fieldset>
-                            
                         </div>
                         <?php endfor;?>
                         <div>                            
@@ -30,20 +35,15 @@
                 </form>
 
         </section>
-        <section class="resposta">
+        
+    </main>
+    <section class="resposta">
         <div class="form-content">
             <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
-
-            <div class="res">
-            <?php
+                
+            <?php       
                 if ($_SERVER["REQUEST_METHOD"] === 'POST' ){
-                    $nome=$_POST['nome'];
-                    $nota=$_POST['nota'];
-                    $alunos =[];
-                    $soma =0;
-                    $maiorNota=-1;
-                    $alunoMaiornota="";
-            
+                            
                         for ($i = 0; $i < 10; $i++){
                             $alunos[] =[
                                 'nome' => $nome[$i],
@@ -59,24 +59,27 @@
                         }
                     }
                         $media=$soma/$i;
-                        echo "<strong>Média da turma: </strong>$media <br>";
-                        echo "<strong>Maior nota: </strong>$alunoMaiornota";
-                }
-            ?>
+                    }        
+                    echo "<div class='res'>
+                        <ul>
+                            <li><strong>Média da turma: </strong> $media</li>
+                            <li><strong>Maior nota: </strong>$alunoMaiornota</li>
+                        </ul>
+                        
+                    </div>";
+            ?>   
+            </fieldset>  
+        </div>
     
-            </div>                   
-        </fieldset>
-                
-                
-            </div>
-        </section>
+                    
 
-    </main>
+        
+
+
+    </section>
     <footer>
-    <footer>
-        <a href="https://github.com/RosaCL"><img src="./costurezaa.png" alt=""></a>
-    </footer>
-    </footer>
+            <a href="https://github.com/RosaCL"><img src="./costurezaa.png" alt=""></a>
+        </footer>
     
 </body>
 </html>

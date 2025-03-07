@@ -24,21 +24,26 @@
                 
             </form>
 
-        </section>
-        <section class="resposta">
-            <div class="form-content">
-                <fieldset> <legend><h1 class="title">Dados analisados</h1></legend>
-                <div class="res">
-                    <?php 
-                    
-                ?>
-                </div>
-                </fieldset>
-            </div> 
-
-        </section>
+        </section>        
 
     </main>
+    <section class="resposta">
+        <div class="form-content">
+            <fieldset><legend> <h1 class="title">Dados Recebidos</h1></legend>
+                
+            <?php      
+        
+            
+            ?>   
+            </fieldset>  
+        </div>
+    
+                    
+
+        
+
+
+    </section>
     <footer>
         <a href="https://github.com/RosaCL"><img src="./costurezaa.png" alt=""></a>
     </footer>
